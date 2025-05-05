@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #domainInput {
+      width: 100%;
+      padding: 5px;
+    }
+    #domainList {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .domain-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>CORS Domain Manager</h2>
+      <p class="subtitle">Add domains to enable CORS bypass</p>
+    </div>
+    
+    <div class="current-domain-actions">
+      <div id="currentDomain" class="current-domain-text">Current domain: </div>
+      <div class="quick-add-buttons">
+        <button id="addCurrentDomain" class="btn-secondary btn-small">Add Domain</button>
+        <button id="addCurrentWildcard" class="btn-secondary btn-small">Add with Wildcard</button>
+      </div>
+    </div>
+    
+    <div class="input-group">
+      <input type="text" id="domainInput" placeholder="Enter domain (e.g., example.com or *.example.com)">
+      <button id="addDomain" class="btn-primary">Add Domain</button>
+    </div>
+    
+    <div class="domains-container">
+      <div class="domains-header">
+        <span>Managed Domains</span>
+        <span class="domain-count">0 domains</span>
+      </div>
+      <div id="domainList" class="domain-list"></div>
+    </div>
+    
+    <div class="footer">
+      <button id="clearAll" class="btn-secondary">Clear All</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
